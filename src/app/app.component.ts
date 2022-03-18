@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-shootout';
+
+  @Output() pageChanged: EventEmitter<string> = new EventEmitter();
+
+  onPageChange($event: any) {
+    console.log($event);
+    this.pageChanged.emit($event);
+  }
 }
